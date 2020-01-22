@@ -5,20 +5,17 @@ public class Solution {
     public static String getSmallestAndLargest(String s, int k) {
         String smallest = "";
         String largest = "";
-        int ascii_min =(int) s.charAt(0);int ascii_max = (int) s.charAt(0);int mi = 0;int ma = 0;
-        for (int i = 0; i <= s.length() - k; i++){
-            int ascii = (int) s.charAt(i);
-            if (ascii_min >= ascii){
-                ascii_min = ascii;
-                mi = i;
+        smallest = s.substring(0,k);
+        largest = s.substring(0,k);
+        for(int i=0; i<=s.length()-k; i++ ){
+            String str = s.substring(i,k+i);
+            if (smallest.compareTo(str)>0){
+                smallest = str;
             }
-            if (ascii_max < ascii){
-                ascii = ascii;
-                ma = i;
+            if(largest.compareTo(str)<0){
+                largest=str;
             }
-        }
-        smallest = s.substring(mi ,mi+k);
-        largest = s.substring(ma ,ma + k);
+        }  
         return smallest + "\n" + largest;
     }
 
