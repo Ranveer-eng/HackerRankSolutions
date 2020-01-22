@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    public static String getSmallestAndLargest(String s, int k) {
+        String smallest = "";
+        String largest = "";
+        int ascii_min =(int) s.charAt(0);int ascii_max = (int) s.charAt(0);int mi = 0;int ma = 0;
+        for (int i = 0; i <= s.length() - k; i++){
+            int ascii = (int) s.charAt(i);
+            if (ascii_min >= ascii){
+                ascii_min = ascii;
+                mi = i;
+            }
+            if (ascii_max < ascii){
+                ascii = ascii;
+                ma = i;
+            }
+        }
+        smallest = s.substring(mi ,mi+k);
+        largest = s.substring(ma ,ma + k);
+        return smallest + "\n" + largest;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        int k = scan.nextInt();
+        scan.close();
+      
+        System.out.println(getSmallestAndLargest(s, k));
+    }
+}
